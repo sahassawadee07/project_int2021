@@ -32,7 +32,10 @@ $description = isset($_POST['description'])?$_POST['description']:null;
     <br><br>
     File Name: <input type="text" name="file_name" required><br><br>
     Resource Meta<br><br>
-    ID: <input type="text" name="id" id="id"><br><br>
+    <div class="id" id="id">
+        <label>ID:</label>
+        <input type="text" class="id" name="id">
+        </div><br><br>
     Name: <input type="text" name="resource_name" required><br><br>
     Description: <textarea name="description" required></textarea><br><br>
     <input type="submit" value="SEND" required><br><br>
@@ -47,6 +50,7 @@ $description = isset($_POST['description'])?$_POST['description']:null;
         }
     });
 </script>
+
 <?php
 
 if(isset($dremio_space_name)){
@@ -96,7 +100,7 @@ $array_job_details = array('dremio_space_name' => $dremio_space_name,
 $jobs ['jobs'][]= $array_job_details;
 
 
-$fp = fopen('results.json', 'w');
+$fp = fopen('jobs.json', 'w');
 fwrite($fp, json_encode($jobs, JSON_PRETTY_PRINT));
 fclose($fp);
 
