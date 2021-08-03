@@ -150,7 +150,7 @@ if(!empty($_POST)){
 
     if (isset($_POST['api_update']))
     {
-     file_put_contents('jobs2.json', json_encode($project));
+     file_put_contents('jobs2.json', json_encode($project, JSON_UNESCAPED_UNICODE));
      header('location:Index_data.php');
     }
      
