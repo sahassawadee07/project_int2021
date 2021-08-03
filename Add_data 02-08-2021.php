@@ -117,7 +117,7 @@ if(!empty($_POST['api_send'])){
      $project['jobs'][$int]['resource_meta']['resource_name'] = isset($_POST['resource_name'])?$_POST['resource_name']:null;
      $project['jobs'][$int]['resource_meta']['description'] = isset($_POST['description'])?$_POST['description']:null;
 
-     file_put_contents('jobs2.json', json_encode($project)); //encode back to json
+     file_put_contents('jobs.json', json_encode($project, JSON_UNESCAPED_UNICODE)); //encode back to json
      header('location: Index_data.php');
      //print_r($project);
  }
